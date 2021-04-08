@@ -10,6 +10,7 @@ module.exports = {
   chainWebpack: (config) => {
     config.output
       .filename("js/[name].js")
+      .library("vueApp")
       .libraryTarget("system")
       .end();
     config.plugin("html").tap((args) => {
