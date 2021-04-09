@@ -11,7 +11,7 @@ module.exports = {
     config.output
       .filename("js/[name].js")
       .library("vueApp")
-      .libraryTarget("system")
+      .libraryTarget("umd")
       .end();
     config.plugin("html").tap((args) => {
       args[0].inject = false;
