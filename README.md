@@ -1,24 +1,7 @@
 # vue-system-demo
 
-## Project setup
-```
-npm install
-```
+vue project run with [SystemJS](https://github.com/systemjs/systemjs) which created by vue/cli
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## plugins folder
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+`WebpackSystemJSHtmlPlugins` is [HtmlWebpackPlugin@3.2.0](https://github.com/jantimon/html-webpack-plugin/tree/v3.2.0) ([vue/cli-service](https://www.npmjs.com/package/@vue/cli-service) dependency version is `3.2.0`) extension, which apply `html-webpack-plugin-alter-asset-tags` hook to set `script` attribute `type="systemjs-module"` 
