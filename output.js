@@ -1,3 +1,10 @@
+[
+  {
+    title: 'vue-system-demo',
+    templateParameters: [Function: templateParameters],
+    template: '/Users/secretcastle/code/mycode/github/js:ts/systemjs/example/vue-system-demo/public/index.html'
+  }
+]
 {
   mode: 'development',
   context: '/Users/secretcastle/code/mycode/github/js:ts/systemjs/example/vue-system-demo',
@@ -18,7 +25,8 @@
     filename: 'js/[name].js',
     publicPath: '/',
     chunkFilename: 'js/[name].js',
-    libraryTarget: 'system'
+    library: 'vueApp',
+    libraryTarget: 'umd'
   },
   resolve: {
     alias: {
@@ -82,7 +90,7 @@
             loader: '/Users/secretcastle/code/mycode/github/js:ts/systemjs/example/vue-system-demo/node_modules/cache-loader/dist/cjs.js',
             options: {
               cacheDirectory: '/Users/secretcastle/code/mycode/github/js:ts/systemjs/example/vue-system-demo/node_modules/.cache/vue-loader',
-              cacheIdentifier: '1eeee746'
+              cacheIdentifier: '39bc0dcc'
             }
           },
           {
@@ -92,7 +100,7 @@
                 whitespace: 'condense'
               },
               cacheDirectory: '/Users/secretcastle/code/mycode/github/js:ts/systemjs/example/vue-system-demo/node_modules/.cache/vue-loader',
-              cacheIdentifier: '1eeee746'
+              cacheIdentifier: '39bc0dcc'
             }
           }
         ]
@@ -1074,7 +1082,7 @@
             loader: '/Users/secretcastle/code/mycode/github/js:ts/systemjs/example/vue-system-demo/node_modules/cache-loader/dist/cjs.js',
             options: {
               cacheDirectory: '/Users/secretcastle/code/mycode/github/js:ts/systemjs/example/vue-system-demo/node_modules/.cache/babel-loader',
-              cacheIdentifier: '470d0963'
+              cacheIdentifier: '31778af6'
             }
           },
           {
@@ -1100,7 +1108,7 @@
                 '.vue'
               ],
               cache: true,
-              cacheIdentifier: '56779fd4',
+              cacheIdentifier: '5649f6e3',
               emitWarning: false,
               emitError: false,
               eslintPath: '/Users/secretcastle/code/mycode/github/js:ts/systemjs/example/vue-system-demo/node_modules/eslint',
@@ -1117,6 +1125,23 @@
     ]
   },
   optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendors: {
+          name: 'chunk-vendors',
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+          chunks: 'initial'
+        },
+        common: {
+          name: 'chunk-common',
+          minChunks: 2,
+          priority: -20,
+          chunks: 'initial',
+          reuseExistingChunk: true
+        }
+      }
+    },
     minimizer: [
       {
         options: {
@@ -1196,9 +1221,11 @@
         title: 'vue-system-demo',
         templateParameters: function () { /* omitted long function */ },
         template: '/Users/secretcastle/code/mycode/github/js:ts/systemjs/example/vue-system-demo/public/index.html',
-        inject: false
+        inject: 'body'
       }
     ),
+    /* config.plugin('system-html-plugins') */
+    new WebpackSystemJSHtmlPlugin(),
     /* config.plugin('preload') */
     new PreloadPlugin(
       {

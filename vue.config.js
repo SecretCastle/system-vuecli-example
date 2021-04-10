@@ -1,6 +1,7 @@
+const HtmlSystemJSHtmlPlugins = require("./plugins/WebpackSystemJSHtmlPlugins");
 module.exports = {
   css: {
-    extract: false
+    extract: true
   },
   devServer: {
     headers: {
@@ -14,11 +15,14 @@ module.exports = {
       .libraryTarget("umd")
       .end();
     config.plugin("html").tap((args) => {
-      args[0].inject = false;
+      args[0].inject = "body";
       return args;
     });
-    config.optimization.delete("splitChunks");
-    config.externals(["vue"]);
+    config
+      .plugin("WebpackSystemJSHtmlPlugins")
+      .use(HtmlSystemJSHtmlPlugins)
+      .after("preload");
+    config.externals(["vue", "vue-router"]);
   },
   configureWebpack: {
     module: {
