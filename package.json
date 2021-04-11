@@ -23,7 +23,8 @@
     "html-webpack-plugin": "^5.3.1",
     "schema-utils": "^3.0.0",
     "vue-loader": "^15.9.6",
-    "vue-template-compiler": "^2.6.12"
+    "vue-template-compiler": "^2.6.12",
+    "webpack-systemjsimport-plugin": "0.0.2"
   },
   "eslintConfig": {
     "root": true,

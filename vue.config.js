@@ -1,4 +1,4 @@
-const HtmlSystemJSHtmlPlugins = require("./plugins/WebpackSystemJSHtmlPlugins");
+const WebpackSystemJSHtmlPlugin = require("webpack-systemjsimport-plugin");
 module.exports = {
   css: {
     extract: true
@@ -20,7 +20,7 @@ module.exports = {
     });
     config
       .plugin("WebpackSystemJSHtmlPlugins")
-      .use(HtmlSystemJSHtmlPlugins, [
+      .use(WebpackSystemJSHtmlPlugin, [
         {
           include: {
             vue: "https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js",
