@@ -20,7 +20,15 @@ module.exports = {
     });
     config
       .plugin("WebpackSystemJSHtmlPlugins")
-      .use(HtmlSystemJSHtmlPlugins)
+      .use(HtmlSystemJSHtmlPlugins, [
+        {
+          include: {
+            vue: "https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js",
+            "vue-router":
+              "https://cdn.jsdelivr.net/npm/vue-router@3.5.1/dist/vue-router.min.js"
+          }
+        }
+      ])
       .after("preload");
     config.externals(["vue", "vue-router"]);
   },

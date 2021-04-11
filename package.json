@@ -21,6 +21,7 @@
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "html-webpack-plugin": "^5.3.1",
+    "schema-utils": "^3.0.0",
     "vue-loader": "^15.9.6",
     "vue-template-compiler": "^2.6.12"
   },
